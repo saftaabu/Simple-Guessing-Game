@@ -32,6 +32,26 @@ namespace Midterm_Aftaabuddin_Syed
 
         private void btn_click(object sender, RoutedEventArgs e)
         {
+            int number;
+            if (int.TryParse(txtNumber.Text, out number))
+            {
+                if (number <= 10 && number >= 1)
+                {
+                    GameLogic();
+                }
+                else
+                {
+                    gameOutput.Content = "Invalid Number.";
+                }
+            }
+            else
+            {
+                gameOutput.Content = "Not a number.";
+            }
+        }
+
+        private void GameLogic()
+        {
             guessNum = Convert.ToInt32(txtNumber.Text);
             lblOutput.Content = number;
             gameOutput.Content = "";
@@ -39,13 +59,30 @@ namespace Midterm_Aftaabuddin_Syed
             if (attempts == 0)
             {
                 gameOutput.Content = "You lost :(";
-            } else if (guessNum == number) {
-                gameOutput.Content = "You guessed the number right! \n It took you " + (5-attempts) + " tries to get it right!";
-            } else
+                GameOver();
+            }
+            else if (guessNum == number)
+            {
+                gameOutput.Content = "You guessed the number right! \n It took you " + (5 - attempts) + " tries to get it right!";
+                GameOver();
+            }
+            else
             {
                 --attempts;
                 gameOutput.Content = "Try Again.";
             }
+        }
+
+        private void try_again(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
+
+        private void GameOver()
+        {
+            tryAgain.Visibility = Visibility.Visible;
+            guessTheNumber.IsEnabled = false;
         }
     }
 }
