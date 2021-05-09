@@ -1,0 +1,40 @@
+﻿<Window x:Class="Midterm_Aftaabuddin_Syed.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm_Aftaabuddin_Syed"
+        mc:Ignorable="d"
+        Title="Guessing Game" Height="450" Width="800" Icon="logo.png">
+    <Window.Background>
+        <ImageBrush ImageSource="black_background.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="460" Margin="6,97,0,-138" VerticalAlignment="Top" Width="315" Source="logo.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="3.753"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="Pick a number between 1 and 10&#xD;&#xA;     You will have 5 attempts" HorizontalAlignment="Left" Margin="398,65,0,298" VerticalAlignment="Center" Height="56" Width="384" FontSize="20" FontFamily="Perpetua Titling MT" Foreground="White"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Height="26" Margin="540,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Background="#FFFFC603" BorderBrush="Black"/>
+        <Button x:Name="GuessTheNumber" Content="GUESS THE NUMBER!" HorizontalAlignment="Left" Margin="460,193,0,0" VerticalAlignment="Top" Width="215" Height="26" FontFamily="Sitka Subheading" FontSize="20" Background="#FF46FF00" RenderTransformOrigin="0.5,0.5" Click="btn_click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-22.231"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="5.109"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label Content="ATTEMPT: " HorizontalAlignment="Left" Margin="398,275,0,0" VerticalAlignment="Top" Height="31" Width="96" FontFamily="Sitka Display" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <Label x:Name="lblAttempt" Content="" HorizontalAlignment="Left" Margin="499,275,0,0" VerticalAlignment="Top" Height="62" Width="67" Foreground="White" FontSize="20"/>
+        <Label x:Name="lblOutput" Content="" HorizontalAlignment="Left" Margin="446,354,0,0" VerticalAlignment="Top" Height="36" Width="294" Foreground="White" FontSize="20"/>
+
+    </Grid>
+</Window>
