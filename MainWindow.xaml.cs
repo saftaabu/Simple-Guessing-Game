@@ -26,15 +26,26 @@ namespace Midterm_Aftaabuddin_Syed
         }
 
         static Random r = new Random();
-        int number = r.Next(10);
+        int number = r.Next(1, 11);
         int guessNum;
-        int win = 10;
-        int guess = 1;
+        int attempts = 5;
 
         private void btn_click(object sender, RoutedEventArgs e)
         {
-            //guessNum = Convert.ToInt32(txtNumber.Text);
+            guessNum = Convert.ToInt32(txtNumber.Text);
             lblOutput.Content = number;
+            gameOutput.Content = "";
+            lblAttempt.Content = attempts;
+            if (attempts == 0)
+            {
+                gameOutput.Content = "You lost :(";
+            } else if (guessNum == number) {
+                gameOutput.Content = "You guessed the number right! \n It took you " + (5-attempts) + " tries to get it right!";
+            } else
+            {
+                --attempts;
+                gameOutput.Content = "Try Again.";
+            }
         }
     }
 }
